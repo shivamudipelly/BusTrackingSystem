@@ -169,10 +169,10 @@ const isLoginGet = (req, res)=>{
 const logoutGet = (req, res) => {
     res.clearCookie('user')
     const user = req.cookies.user;
-    if(!user)
-        return res.json({ status: true, message:'Logout Successfully!' })
-    else
-        return res.json({ status: false, message:'Logout Failed!' })
+    // if(!user)return
+         res.json({ status: true, message:'Logout Successfully!' })
+    // else
+    //     return res.json({ status: false, message:'Logout Failed!' })
 }
 
 const mapGet = async (req, res) => {
