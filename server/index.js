@@ -11,7 +11,7 @@ const driverRoutes = require('./routes/driverRoute')
 const cookieParser = require('cookie-parser');
 
 const corsOptions = {
-    origin: ["http://localhost:3000"],
+    origin: ["http://localhost:3000", 'https://bus-tracking-system.vercel.app'],
     credentials: true, 
     optionsSuccessStatus: 200,
     methods: ['GET', 'POST','PUT','DELETE']
