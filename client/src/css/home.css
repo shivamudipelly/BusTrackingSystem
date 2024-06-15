@@ -1,0 +1,935 @@
+.home-container {
+    width: 100%;
+    display: flex;
+    min-height: 100vh;
+    align-items: center;
+    flex-direction: column;
+  }
+ 
+  .home-image {
+    width: var(--dl-size-size-small);
+    object-fit: cover;
+    margin-right: 14px;
+  }
+  
+  .home-hero {
+    height: auto;
+  }
+  .home-max-width1 {
+    align-items: center;
+    animation-name: none;
+    animation-delay: 0s;
+    animation-duration: 300ms;
+    animation-direction: normal;
+    animation-iteration-count: 1;
+    animation-timing-function: ease;
+  }
+  .home-content {
+    flex: 0 0 auto;
+    width: 45%;
+    display: flex;
+    align-items: flex-start;
+    margin-right: var(--dl-space-space-twounits);
+    margin-bottom: var(--dl-space-space-threeunits);
+    flex-direction: column;
+  }
+  .home-subtitle {
+    color: var(--dl-color-scheme-orange100);
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    margin-bottom: var(--dl-space-space-unit);
+    animation-name: pulse;
+    animation-delay: 0s;
+    animation-duration: 300ms;
+    animation-direction: normal;
+    animation-iteration-count: 1;
+    animation-timing-function: ease;
+  }
+  .home-title {
+    color: var(--dl-color-scheme-white);
+    font-size: 52px;
+    font-style: normal;
+    font-family: "Urbanist";
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: var(--dl-space-space-twounits);
+  }
+  .home-description {
+    color: var(--dl-color-scheme-white);
+    font-size: 18px;
+    line-height: 1.5;
+    margin-bottom: var(--dl-space-space-threeunits);
+  }
+  .home-container01 {
+    flex: 0 0 auto;
+    width: 100%;
+    display: flex;
+    align-items: stretch;
+    flex-direction: row;
+  }
+  .home-navlink1 {
+    animation-name: pulse;
+    animation-delay: 0s;
+    text-decoration: none;
+    animation-duration: 300ms;
+    animation-direction: normal;
+    animation-iteration-count: 1;
+    animation-timing-function: ease;
+  }
+  .home-image2 {
+    position: relative;
+    padding-bottom: var(--dl-space-space-eightunits);
+  }
+  .home-hero-image {
+    flex: 1;
+    max-width: 550px;
+    object-fit: cover;
+    border-radius: 48px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+  .home-image3 {
+    right: -170px;
+    bottom: 0px;
+    position: absolute;
+    object-fit: contain;
+  }
+  .home-section {
+    z-index: 100;
+    box-shadow: 5px 5px 10px 0px #d4d4d4;
+    border-color: var(--dl-color-scheme-green100);
+    border-width: 1px;
+    border-radius: var(--dl-radius-radius-radius4);
+    animation-name: none;
+    animation-delay: 0s;
+    animation-duration: 300ms;
+    animation-direction: normal;
+    animation-iteration-count: 1;
+    animation-timing-function: ease;
+  }
+  .home-max-width2 {
+    align-items: stretch;
+  }
+  .home-image4 {
+    border: 2px dashed rgba(120, 120, 120, 0.4);
+  }
+  .home-hero-image1 {
+    width: 630px;
+    height: 786px;
+    object-fit: contain;
+    margin-left: -250px;
+    border-radius: 48px;
+  }
+  .home-content1 {
+    width: 50%;
+    display: flex;
+    margin-left: var(--dl-space-space-twounits);
+    flex-direction: column;
+    justify-content: center;
+  }
+  .home-text10 {
+    color: var(--dl-color-scheme-green80);
+    margin-bottom: var(--dl-space-space-unit);
+  }
+  .home-text11 {
+    font-size: 42px;
+    font-style: normal;
+    font-family: "Urbanist";
+    font-weight: 700;
+    line-height: 1.25;
+    margin-bottom: var(--dl-space-space-twounits);
+  }
+  .home-container02 {
+    flex: 0 0 auto;
+    width: 100%;
+    display: flex;
+    align-items: stretch;
+    flex-direction: row;
+  }
+  .home-link {
+    fill: var(--dl-color-scheme-orange80);
+    color: var(--dl-color-scheme-orange80);
+    border-color: #000000;
+    text-decoration: none;
+    background-color: var(--dl-color-scheme-green80);
+  }
+  .home-section1 {
+    background-color: rgba(255, 199, 139, 0.14);
+  }
+  .home-max-width3 {
+    align-items: stretch;
+  }
+  .home-content2 {
+    width: 50%;
+    display: flex;
+    margin-right: var(--dl-space-space-twounits);
+    flex-direction: column;
+    justify-content: center;
+  }
+  .home-text12 {
+    color: var(--dl-color-scheme-orange80);
+    font-size: 21px;
+    font-style: normal;
+    font-weight: 700;
+    margin-bottom: var(--dl-space-space-unit);
+    text-transform: capitalize;
+    /* text-decoration:   ; */
+  }
+  .home-text13 {
+    font-size: 42px;
+    font-style: normal;
+    font-family: "Urbanist";
+    font-weight: 700;
+    line-height: 1.25;
+    margin-bottom: var(--dl-space-space-twounits);
+  }
+  .home-text15 {
+    color: var(--dl-color-scheme-orange80);
+  }
+  .home-text16 {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: var(--dl-space-space-threeunits);
+  }
+  .home-text17 {
+    font-size: 20px;
+  }
+  .home-hero-image2 {
+    width: 414px;
+    height: 597px;
+    object-fit: contain;
+    margin-right: -250px;
+    border-radius: 48px;
+  }
+  .home-image5 {
+    border: 2px dashed rgba(120, 120, 120, 0.4);
+  }
+  .home-section2 {
+    background-color: var(--dl-color-scheme-green100);
+  }
+  .home-max-width4 {
+    align-items: stretch;
+  }
+  .home-image6 {
+    width: 50%;
+  }
+  .home-hero-image3 {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 48px;
+  }
+  .home-content3 {
+    width: 40%;
+    display: flex;
+    margin-top: var(--dl-space-space-twounits);
+    margin-bottom: var(--dl-space-space-twounits);
+    flex-direction: column;
+    justify-content: center;
+  }
+  .home-text19 {
+    color: var(--dl-color-scheme-white);
+    margin-bottom: var(--dl-space-space-unit);
+  }
+  .home-text20 {
+    color: var(--dl-color-scheme-white);
+    font-size: 42px;
+    font-style: normal;
+    font-family: Urbanist;
+    font-weight: 700;
+    line-height: 1.35;
+    margin-bottom: var(--dl-space-space-twounits);
+  }
+  .home-step {
+    display: flex;
+    margin-bottom: var(--dl-space-space-twounits);
+    flex-direction: row;
+  }
+  .home-number {
+    flex: 0 0 auto;
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    margin-right: var(--dl-space-space-twounits);
+    border-radius: var(--dl-radius-radius-radius16);
+    flex-direction: column;
+    justify-content: center;
+    background-color: var(--dl-color-scheme-orange100);
+  }
+  .home-text21 {
+    font-size: 28px;
+    font-style: normal;
+    font-family: Urbanist;
+    font-weight: 700;
+    line-height: 1.5;
+  }
+  .home-container03 {
+    flex: 1;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .home-title1 {
+    color: var(--dl-color-scheme-white);
+    font-size: 24px;
+    font-style: normal;
+    font-family: "Urbanist";
+    font-weight: 700;
+    line-height: 1.5;
+    margin-bottom: var(--dl-space-space-halfunit);
+  }
+  .home-text22 {
+    color: var(--dl-color-scheme-white);
+  }
+  .home-step1 {
+    display: flex;
+    margin-bottom: var(--dl-space-space-twounits);
+    flex-direction: row;
+  }
+  .home-number1 {
+    flex: 0 0 auto;
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    margin-right: var(--dl-space-space-twounits);
+    border-radius: var(--dl-radius-radius-radius16);
+    flex-direction: column;
+    justify-content: center;
+    background-color: var(--dl-color-scheme-orange100);
+  }
+  .home-text23 {
+    font-size: 28px;
+    font-style: normal;
+    font-family: Urbanist;
+    font-weight: 700;
+    line-height: 1.5;
+  }
+  .home-container04 {
+    flex: 1;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .home-title2 {
+    color: var(--dl-color-scheme-white);
+    font-size: 24px;
+    font-style: normal;
+    font-family: "Urbanist";
+    font-weight: 700;
+    line-height: 1.5;
+    margin-bottom: var(--dl-space-space-halfunit);
+  }
+  .home-text24 {
+    color: var(--dl-color-scheme-white);
+  }
+  .home-step2 {
+    display: flex;
+    flex-direction: row;
+  }
+  .home-number2 {
+    flex: 0 0 auto;
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    margin-right: var(--dl-space-space-twounits);
+    border-radius: var(--dl-radius-radius-radius16);
+    flex-direction: column;
+    justify-content: center;
+    background-color: var(--dl-color-scheme-orange100);
+  }
+  .home-text25 {
+    font-size: 28px;
+    font-style: normal;
+    font-family: Urbanist;
+    font-weight: 700;
+    line-height: 1.5;
+  }
+  .home-container05 {
+    flex: 1;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .home-title3 {
+    color: var(--dl-color-scheme-white);
+    font-size: 24px;
+    font-style: normal;
+    font-family: "Urbanist";
+    font-weight: 700;
+    line-height: 1.5;
+    margin-bottom: var(--dl-space-space-halfunit);
+  }
+  .home-text26 {
+    color: var(--dl-color-scheme-white);
+  }
+  .home-max-width5 {
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .home-text27 {
+    color: var(--dl-color-scheme-green80);
+    margin-bottom: var(--dl-space-space-halfunit);
+  }
+  .home-text28 {
+    font-size: 42px;
+    font-style: normal;
+    text-align: center;
+    font-family: "Urbanist";
+    font-weight: 700;
+    line-height: 1.25;
+    margin-bottom: var(--dl-space-space-threeunits);
+  }
+  .home-cards-container {
+    flex: 0 0 auto;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .home-testimonial-card {
+    width: 100%;
+    display: flex;
+    padding: var(--dl-space-space-threeunits);
+    max-width: var(--dl-size-size-maxwidth);
+    background: #fff;
+    box-shadow: 5px 5px 10px 0px rgba(18, 18, 18, 0.1);
+    align-items: center;
+    justify-content: space-between;
+  }
+  .home-testimonial {
+    display: flex;
+    align-items: flex-start;
+    margin-right: var(--dl-space-space-threeunits);
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .home-icon08 {
+    width: var(--dl-size-size-small);
+    flex-shrink: 0;
+    margin-bottom: var(--dl-space-space-twounits);
+  }
+  .home-text31 {
+    color: rgb(89, 89, 89);
+    font-size: 1.15rem;
+    align-self: flex-start;
+    font-style: normal;
+    font-family: "Arial";
+    font-weight: 600;
+    margin-bottom: var(--dl-space-space-twounits);
+  }
+  .home-text32 {
+    font-size: 1.5rem;
+  }
+  .home-image7 {
+    width: var(--dl-size-size-xlarge);
+    height: var(--dl-size-size-xlarge);
+    object-fit: cover;
+    flex-shrink: 0;
+    border-radius: var(--dl-radius-radius-round);
+  }
+  .home-section4 {
+    padding-top: 0px;
+  }
+  .home-max-width6 {
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .home-faq {
+    flex: 0 0 auto;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-bottom: var(--dl-space-space-eightunits);
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .home-questions {
+    flex: 0 0 auto;
+    width: 50%;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .home-text33 {
+    color: var(--dl-color-scheme-green80);
+    margin-bottom: var(--dl-space-space-unit);
+  }
+  .home-text34 {
+    font-size: 42px;
+    font-style: normal;
+    font-family: Urbanist;
+    font-weight: 700;
+    line-height: 1.25;
+    margin-bottom: var(--dl-space-space-twounits);
+  }
+  .home-text35 {
+    font-family: Urbanist;
+  }
+  .home-text37 {
+    color: var(--dl-color-scheme-orange100);
+    font-family: Urbanist;
+  }
+  .home-trigger {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .home-text38 {
+    color: #000;
+    line-height: 1.5;
+  }
+  .home-icon10 {
+    width: 12px;
+    height: 12px;
+  }
+  .home-text39 {
+    color: #000;
+    margin-top: 8px;
+  }
+  .home-trigger1 {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .home-text40 {
+    color: #000;
+    line-height: 1.5;
+  }
+  .home-icon12 {
+    width: 12px;
+    height: 12px;
+  }
+  .home-text41 {
+    margin-top: 8px;
+  }
+  .home-trigger2 {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .home-text42 {
+    color: #000;
+    line-height: 1.5;
+  }
+  .home-icon14 {
+    width: 12px;
+    height: 12px;
+  }
+  .home-text43 {
+    margin-top: 8px;
+  }
+  .home-trigger3 {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .home-text44 {
+    color: #000;
+    line-height: 1.5;
+  }
+  .home-icon16 {
+    width: 12px;
+    height: 12px;
+  }
+  .home-text45 {
+    margin-top: 8px;
+  }
+  .home-image8 {
+    width: 625px;
+    height: 746px;
+    object-fit: cover;
+    margin-right: -200px;
+  }
+  .home-banner {
+    flex: 0 0 auto;
+    width: 100%;
+    display: flex;
+    padding: var(--dl-space-space-fourunits);
+    align-items: center;
+    border-radius: 48px;
+    flex-direction: column;
+    background-size: cover;
+    background-image: url("../images/group\ 11-1200w.png");
+  }
+  .home-text46 {
+    color: var(--dl-color-scheme-lightgreen);
+    margin-bottom: var(--dl-space-space-halfunit);
+  }
+  .home-text47 {
+    color: var(--dl-color-scheme-white);
+    font-size: 42px;
+    font-style: normal;
+    text-align: center;
+    font-family: "Urbanist";
+    font-weight: 700;
+    line-height: 1.25;
+    margin-bottom: var(--dl-space-space-halfunit);
+  }
+  .home-text51 {
+    color: var(--dl-color-scheme-orange100);
+    text-align: center;
+    margin-bottom: var(--dl-space-space-twounits);
+    text-transform: capitalize;
+  }
+  .home-btns {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: stretch;
+    flex-direction: row;
+  }
+  .home-button4 {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    padding-top: 12px;
+    margin-right: var(--dl-space-space-unit);
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-bottom: 12px;
+  }
+  .home-button5 {
+    padding-top: 12px;
+    margin-right: 0px;
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-bottom: 12px;
+  }
+  .home-footer {
+    width: 100%;
+    display: flex;
+    max-width: var(--dl-size-size-maxwidth);
+    align-items: center;
+    padding-top: var(--dl-space-space-twounits);
+    padding-left: var(--dl-space-space-threeunits);
+    padding-right: var(--dl-space-space-threeunits);
+    flex-direction: row;
+    padding-bottom: var(--dl-space-space-twounits);
+    justify-content: space-between;
+  }
+  .home-links-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .home-container06 {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .home-container07 {
+    position: relative;
+  }
+  .home-text52 {
+    font-weight: 700;
+    margin-bottom: var(--dl-space-space-oneandhalfunits);
+  }
+  .home-text53 {
+    margin-bottom: var(--dl-space-space-unit);
+  }
+  .home-text54 {
+    margin-bottom: var(--dl-space-space-unit);
+  }
+  .home-text55 {
+    margin-bottom: var(--dl-space-space-unit);
+  }
+  .home-text57 {
+    font-weight: 700;
+    margin-bottom: var(--dl-space-space-oneandhalfunits);
+  }
+  .home-text58 {
+    margin-bottom: var(--dl-space-space-unit);
+  }
+  .home-text59 {
+    margin-bottom: var(--dl-space-space-unit);
+  }
+  .home-text60 {
+    margin-bottom: var(--dl-space-space-unit);
+  }
+  .home-text61 {
+    margin-bottom: var(--dl-space-space-unit);
+  }
+  .home-text62 {
+    font-weight: 700;
+    margin-bottom: var(--dl-space-space-oneandhalfunits);
+  }
+  .home-text63 {
+    margin-bottom: var(--dl-space-space-unit);
+  }
+  .home-text64 {
+    margin-bottom: var(--dl-space-space-unit);
+  }
+  .home-text65 {
+    margin-bottom: var(--dl-space-space-unit);
+  }
+  .home-text66 {
+    margin-bottom: var(--dl-space-space-unit);
+  }
+  .home-text67 {
+    margin-bottom: var(--dl-space-space-unit);
+  }
+  .home-text69 {
+    font-weight: 700;
+    margin-bottom: var(--dl-space-space-oneandhalfunits);
+  }
+  .home-text70 {
+    margin-bottom: var(--dl-space-space-unit);
+  }
+  .home-text71 {
+    margin-bottom: var(--dl-space-space-unit);
+  }
+  .home-text72 {
+    margin-bottom: var(--dl-space-space-unit);
+  }
+  .home-text74 {
+    font-weight: 700;
+    margin-bottom: var(--dl-space-space-oneandhalfunits);
+  }
+  .home-text75 {
+    margin-bottom: var(--dl-space-space-unit);
+  }
+  .home-text76 {
+    margin-bottom: var(--dl-space-space-unit);
+  }
+  .home-text77 {
+    margin-bottom: var(--dl-space-space-unit);
+  }
+  .home-text78 {
+    margin-bottom: var(--dl-space-space-unit);
+  }
+  @media(max-width: 1200px) {
+    
+    
+    .home-max-width1 {
+      animation-name: bounce;
+      animation-delay: 0s;
+      animation-duration: 0s;
+      animation-direction: normal;
+      animation-iteration-count: 1;
+      animation-timing-function: ease;
+    }
+    .home-title {
+      color: var(--dl-color-scheme-white);
+      font-size: 52px;
+      font-style: normal;
+      font-family: Urbanist;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+    .home-text09 {
+      color: var(--dl-color-scheme-lightgreen);
+    }
+    .home-testimonial-card {
+      animation-name: flash;
+      animation-delay: 0s;
+      animation-duration: 300ms;
+      animation-direction: normal;
+      animation-iteration-count: 1;
+      animation-timing-function: ease;
+    }
+  }
+  @media(max-width: 991px) {
+    .home-content {
+      width: 50%;
+      margin-right: var(--dl-space-space-unit);
+    }
+    .home-image2 {
+      padding-bottom: var(--dl-space-space-threeunits);
+    }
+    .home-hero-image {
+      margin-bottom: 0px;
+    }
+    .home-max-width2 {
+      flex-direction: column;
+    }
+    .home-image4 {
+      padding-bottom: var(--dl-space-space-threeunits);
+    }
+    .home-hero-image1 {
+      width: 100%;
+      margin-left: 0px;
+      margin-bottom: 0px;
+    }
+    .home-content1 {
+      width: 100%;
+      margin-left: 0px;
+      margin-right: 0px;
+    }
+    .home-max-width3 {
+      flex-direction: column;
+    }
+    .home-content2 {
+      width: 100%;
+      margin-left: 0px;
+      margin-right: 0px;
+      margin-bottom: var(--dl-space-space-threeunits);
+    }
+    .home-hero-image2 {
+      width: 100%;
+      margin-left: 0px;
+      margin-bottom: 0px;
+    }
+    .home-image5 {
+      padding-bottom: 0px;
+    }
+    .home-max-width4 {
+      flex-direction: column;
+    }
+    .home-image6 {
+      width: 100%;
+      padding-bottom: var(--dl-space-space-threeunits);
+    }
+    .home-hero-image3 {
+      width: 100%;
+      margin-left: 0px;
+      margin-bottom: 0px;
+    }
+    .home-content3 {
+      width: 100%;
+      margin-left: 0px;
+      margin-right: 0px;
+    }
+    .home-max-width5 {
+      flex-direction: column;
+    }
+    .home-max-width6 {
+      flex-direction: column;
+    }
+    .home-questions {
+      width: 60%;
+    }
+    .home-image8 {
+      margin-right: -100px;
+    }
+    .home-footer {
+      flex-direction: column;
+    }
+    .home-links-container {
+      width: auto;
+      margin-top: var(--dl-space-space-twounits);
+      flex-direction: row;
+    }
+    .home-container06 {
+      flex-wrap: wrap;
+      margin-right: 0px;
+    }
+  }
+  @media(max-width: 767px) {
+    .home-max-width1 {
+      flex-direction: column-reverse;
+    }
+    .home-content {
+      width: 100%;
+      margin-right: 0px;
+    }
+    .home-hero-image {
+      margin-right: 0px;
+    }
+    .home-content1 {
+      width: 100%;
+      margin-right: 0px;
+    }
+    .home-content2 {
+      width: 100%;
+      margin-right: 0px;
+    }
+    .home-content3 {
+      width: 100%;
+      margin-right: 0px;
+    }
+    .home-cards-container {
+      gap: var(--dl-space-space-oneandhalfunits);
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .home-testimonial-card {
+      padding-left: var(--dl-space-space-twounits);
+      padding-right: var(--dl-space-space-twounits);
+    }
+    .home-testimonial {
+      margin-right: var(--dl-space-space-twounits);
+    }
+    .home-icon08 {
+      height: var(--dl-size-size-small);
+    }
+    .home-faq {
+      margin-bottom: var(--dl-space-space-twounits);
+      flex-direction: column;
+    }
+    .home-questions {
+      width: 100%;
+      margin-bottom: var(--dl-space-space-oneandhalfunits);
+    }
+    .home-image8 {
+      width: 100%;
+      margin-right: 0px;
+    }
+    .home-banner {
+      padding: var(--dl-space-space-twounits);
+    }
+    .home-footer {
+      padding-left: var(--dl-space-space-twounits);
+      padding-right: var(--dl-space-space-twounits);
+    }
+    .home-links-container {
+      width: auto;
+      margin-top: var(--dl-space-space-twounits);
+      align-items: center;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .home-container06 {
+      width: 100%;
+      justify-content: space-between;
+    }
+  }
+  @media(max-width: 479px) {
+    .home-testimonial-card {
+      padding-top: var(--dl-space-space-twounits);
+      padding-left: var(--dl-space-space-unit);
+      padding-right: var(--dl-space-space-unit);
+      flex-direction: column;
+      padding-bottom: var(--dl-space-space-twounits);
+    }
+    .home-testimonial {
+      align-items: center;
+      margin-right: 0px;
+      margin-bottom: var(--dl-space-space-unit);
+    }
+    .home-text31 {
+      text-align: left;
+    }
+    .home-banner {
+      padding-top: var(--dl-space-space-twounits);
+      padding-left: var(--dl-space-space-unit);
+      padding-right: var(--dl-space-space-unit);
+      padding-bottom: var(--dl-space-space-twounits);
+    }
+    .home-footer {
+      padding: var(--dl-space-space-unit);
+    }
+    .home-links-container {
+      align-items: flex-start;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .home-container06 {
+      align-items: center;
+      margin-right: 0px;
+      justify-content: space-between;
+    }
+  }
