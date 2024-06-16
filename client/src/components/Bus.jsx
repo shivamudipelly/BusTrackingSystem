@@ -14,8 +14,6 @@ const Card = ({ imgSrc, routeNo }) => {
   );
 }
 
-import React from 'react'
-
 export default function Bus() {
 
 
