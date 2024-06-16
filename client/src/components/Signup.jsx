@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import '../css/form.css';
 import axios from "axios";
 import { apiUrl } from '../const';
-import Notification from './Notifcation';
+import Notification from './Notification';
 
 export default function Signup() {
     const [login, setLogin] = React.useState({ name: "", email: "", password: "" });

@@ -1,19 +1,18 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Link, useNavigate} from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import '../css/form.css';
 import { apiUrl } from '../const';
 import { useAuth } from './AuthProvider';
-import Notification from './Notifcation';
+import Notification from './Notification';
 
 export default function DriverLogin() {
     const [driverLogin, setDriverLogin] = useState({ email: "", password: "" });
     const [errors, setErrors] = useState({ email: "", password: "" });
-    const [busId ,setBusId] = useState(null);
+    const [busId, setBusId] = useState(null);
     const [notificationMessage, setNotificationMessage] = useState({ status: '', message: '' });
     const navigate = useNavigate();
     const { login } = useAuth();
-    
 
     const handleNotificationClose = () => {
         login();
@@ -35,20 +34,20 @@ export default function DriverLogin() {
         try {
             axios.defaults.withCredentials = true;
             const response = await axios.post(`${apiUrl}/auth/driverlogin`, { ...driverLogin });
-            if (response.data.errors)
+            if (response.data.errors) {
                 setErrors(prev => ({
                     ...prev,
                     ...response.data.errors
                 }));
-            if (response.data.status) {
-                 setBusId(response.data.busId)
+            } else if (response.data.status) {
+                setBusId(response.data.busId);
                 setNotificationMessage(prev => ({ ...prev, ...response.data }));
                 setTimeout(() => {
                     handleNotificationClose();
                 }, 10000);
-            } 
+            }
         } catch (e) {
-            console.error('login failed:', e);
+            console.error('Login failed:', e);
         }
     }
 
@@ -62,7 +61,7 @@ export default function DriverLogin() {
             <label htmlFor='password'>Password: </label>
             <input type='password' id='password' value={driverLogin.password} placeholder='Password' name='password' onChange={updateState} />
             {errors.password && <div className="error">{errors.password}</div>}
-            
+
             <Link to="/user/forgotPassword">Forgot password?</Link>
             <div className="switch-auth-message">
                 Don't have an account? <Link to="/driver/signup">Sign up</Link>

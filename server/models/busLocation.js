@@ -18,7 +18,7 @@ const busLocationSchema = new mongoose.Schema({
 });
 
 // Create a Mongoose model
-const busLocation = mongoose.model('BusLocation', busLocationSchema);
+const BusLocation = mongoose.model('BusLocation', busLocationSchema);
 
 // Export the model
-module.exports = busLocation;
+module.exports = BusLocation;

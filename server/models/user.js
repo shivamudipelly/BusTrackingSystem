@@ -1,29 +1,31 @@
 const mongoose = require('mongoose');
 const { isEmail } = require('validator');
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcrypt');
 
-
+// Define the schema
 const Schema = mongoose.Schema({
     name: {
         type: String,
         required: [true, 'Please enter the name'],
         unique: true
     },
-    email :{
+    email: {
         type: String,
         required: [true, 'Please enter the email'],
         unique: true,
-        validate: [isEmail  , "Please enter valid email"]
+        validate: [isEmail, 'Please enter a valid email']
     },
-    password:{
+    password: {
         type: String,
         required: [true, 'Please enter the password'],
         minlength: [6, 'Minimum password length is 6 characters']
     }
-})
+});
 
+// Pre-save hook to hash the password before saving
 Schema.pre('save', async function(next) {
     if (!this.isModified('password')) return next();
+
     try {
         const salt = await bcrypt.genSalt(10);
         this.password = await bcrypt.hash(this.password, salt);
@@ -33,6 +35,7 @@ Schema.pre('save', async function(next) {
     }
 });
 
-const User = mongoose.model('User',Schema);
+// Create a Mongoose model
+const User = mongoose.model('User', Schema);
 
 module.exports = User;

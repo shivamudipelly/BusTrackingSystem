@@ -1,4 +1,4 @@
-require('dotenv').config()
+require('dotenv').config();
 
 const User = require('../models/user');
 const busLocation = require('../models/busLocation');
@@ -7,7 +7,6 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const cookie = require('cookie-parser');
 const nodemailer = require('nodemailer');
-
 
 const sendEmail = async (message) => {
     const transporter = nodemailer.createTransport({
@@ -18,32 +17,37 @@ const sendEmail = async (message) => {
         }
     });
 
-    const info = await transporter.sendMail(message);
-}
-
+    try {
+        const info = await transporter.sendMail(message);
+        console.log(`Email sent: ${info.messageId}`);
+        return info;
+    } catch (error) {
+        console.error('Error sending email:', error);
+        throw error; // Propagate the error back to the caller if needed
+    }
+};
 
 const createToken = (user) => {
     return jwt.sign({ id: user._id }, process.env.SECRETKEY, { expiresIn: '24h' });
-}
+};
 
 const handleErrors = (err) => {
-    let error = { name: "", email: "", password: "" }
+    let error = { name: "", email: "", password: "" };
     if (err.message.includes('User validation failed')) {
         Object.values(err.errors).forEach(({ properties }) => {
             error[properties.path] = properties.message;
-        })
+        });
     }
     if (err.code) {
-        error.email = err.keyValue.email ? 'Email already registered' : ''
-        error.name = err.keyValue.name ? 'Name is not available' : ''
+        error.email = err.keyValue.email ? 'Email already registered' : '';
+        error.name = err.keyValue.name ? 'Name is not available' : '';
     }
-    return error
-}
+    return error;
+};
 
 const loginPost = async (req, res) => {
     const { email, password } = req.body;
     const error = { email: "", password: "" };
-
 
     if (!email || !isEmail(email)) {
         error.email = "Please enter a valid email address";
@@ -68,7 +72,6 @@ const loginPost = async (req, res) => {
             return res.json({ errors: { password: "Password didn't match" } });
         }
 
-        //jwt token creation
         const token = createToken(user);
 
         res.cookie('user', token, {
@@ -77,103 +80,109 @@ const loginPost = async (req, res) => {
             secure: true,
             sameSite: 'None'
         });
-        return res.json({ status: true, message: 'login successfully!', user: ['user', token] })
+
+        console.log(`User logged in: ${user.email}`);
+        return res.json({ status: true, message: 'Login successful!', user: ['user', token] });
     } catch (err) {
-        console.error(err);
-        return res.json({ status: false, message: 'login Failed!' })
-        res.status(500).json({ errors: "Internal server error" });
+        console.error('Login error:', err);
+        return res.status(500).json({ status: false, message: 'Login failed!' });
     }
 };
 
-
 const signupPost = async (req, res) => {
     const { name, email, password } = req.body;
-    const clientData = new User({ name, email, password })
-    clientData.save()
-        .then(savedMongeese => {
-            return res.json({ status: true, message: 'Signup successfully!' })
-        })
-        .catch(err => {
-            const error = handleErrors(err);
-            res.json({ "errors": { ...error } })
-        });
-}
+    const clientData = new User({ name, email, password });
+
+    try {
+        await clientData.save();
+        console.log(`User signed up: ${email}`);
+        return res.json({ status: true, message: 'Signup successful!' });
+    } catch (err) {
+        const error = handleErrors(err);
+        console.error('Signup error:', error);
+        return res.json({ "errors": { ...error } });
+    }
+};
 
 const forgotPasswordPost = async (req, res) => {
     const { email } = req.body;
     try {
-        const user = await User.findOne({ email })
+        const user = await User.findOne({ email });
         if (!user) {
-            return res.json({ errors: { email: "User is not registerd" } })
+            return res.json({ errors: { email: "User is not registered" } });
         }
+
         const token = jwt.sign({ id: user._id }, process.env.SECRETKEY, { expiresIn: '5m' });
         const message = {
             from: process.env.EMAIL,
             to: email,
-            subject: "Hello ✔",
-            text: "Hello world?",
-            html: `<b>https://bustracking-seven.vercel.app/user/resetpassword/${token}</b>`
-        }
+            subject: "Password Reset",
+            html: `<b>Reset your password here: <a href="https://example.com/reset/${token}">Reset Password</a></b>`
+        };
 
-        let eamilResponse = sendEmail(message);
-
-        return res.json({ status: true, message: `${eamilResponse}` })
+        await sendEmail(message);
+        console.log(`Password reset email sent to: ${email}`);
+        return res.json({ status: true, message: 'Password reset email sent!' });
 
     } catch (err) {
-        console.log(err);
-        return res.json({ message: 'email not sent' })
+        console.error('Forgot password error:', err);
+        return res.status(500).json({ message: 'Failed to send reset email' });
     }
-}
+};
 
 const resetPasswordPost = async (req, res) => {
     const { token } = req.params;
     const { newPassword } = req.body;
     try {
-        const decoded = jwt.verify(token, process.env.SECRETKEY)
+        const decoded = jwt.verify(token, process.env.SECRETKEY);
         const id = decoded.id;
         const salt = await bcrypt.genSalt(10);
         const hashPassword = await bcrypt.hash(newPassword, salt);
+
+        const user = await User.updateOne({ _id: id }, { password: hashPassword });
+        console.log(`Password reset for user ID: ${id}`);
         
-        const user = await User.updateOne({ _id: id }, { password: hashPassword })
-        console.log(user);
         if (user) {
-            return res.json({ staus: true, message: 'Reset Password Successfully!' })
+            return res.json({ status: true, message: 'Password reset successful!' });
         } else {
-            return res.json({ staus: false, message: 'Reset Password Failed' })
+            return res.json({ status: false, message: 'Password reset failed' });
         }
     } catch (err) {
-        return res.json({ staus: false, message: 'Reset Password Failed' })
+        console.error('Reset password error:', err);
+        return res.json({ status: false, message: 'Password reset failed' });
     }
+};
 
-
-}
-
-const isLoginGet = (req, res)=>{
-    try{
+const isLoginGet = (req, res) => {
+    try {
         const user = req.cookies.user;
-        if(!user){
-            return res.json({staus: false, message: 'no token'})
+        if (!user) {
+            return res.json({ status: false, message: 'No token found' });
         }
-        jwt.verify(user, process.env.SECRETKEY,(err, decoded)=>{
-            if(err){
-                return res.json({ isLoggedIn: false})
-            }else{
-                return res.json({ isLoggedIn: true})
+        jwt.verify(user, process.env.SECRETKEY, (err, decoded) => {
+            if (err) {
+                console.error('JWT verification error:', err);
+                return res.json({ isLoggedIn: false });
+            } else {
+                return res.json({ isLoggedIn: true });
             }
         });
-    }catch(err){
-        return res.json(err);
+    } catch (err) {
+        console.error('Error getting login status:', err);
+        return res.status(500).json({ message: 'Internal server error' });
     }
-}
+};
 
 const logoutGet = (req, res) => {
-    res.clearCookie('user')
-    const user = req.cookies.user;
-    // if(!user)return
-         res.json({ status: true, message:'Logout Successfully!' })
-    // else
-    //     return res.json({ status: false, message:'Logout Failed!' })
-}
+    try {
+        res.clearCookie('user');
+        console.log('User logged out');
+        return res.json({ status: true, message: 'Logout successful!' });
+    } catch (err) {
+        console.error('Logout error:', err);
+        return res.json({ status: false, message: 'Logout failed' });
+    }
+};
 
 const mapGet = async (req, res) => {
     let { busId } = req.params;
@@ -181,15 +190,16 @@ const mapGet = async (req, res) => {
     try {
         const location = await busLocation.findOne({ busId: parseInt(busId) });
         if (location) {
+            console.log(`Bus location found: ${location.latitude}, ${location.longitude}`);
             return res.json({ status: true, location: { latitude: location.latitude, longitude: location.longitude } });
         } else {
+            console.log(`Bus location not found for ID: ${busId}`);
             return res.json({ status: false });
         }
     } catch (error) {
+        console.error('Map route error:', error);
         return res.status(500).json({ status: false, error: 'Internal server error' });
     }
-}
+};
 
-
-
-module.exports = { isLoginGet, mapGet, loginPost, signupPost, forgotPasswordPost, resetPasswordPost, logoutGet, createToken, handleErrors }
+module.exports = { isLoginGet, mapGet, loginPost, signupPost, forgotPasswordPost, resetPasswordPost, logoutGet, createToken, handleErrors };

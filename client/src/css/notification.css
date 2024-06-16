@@ -2,37 +2,34 @@
 .notification{
     overflow: hidden;
     z-index: 1;
-    width: 0;
+    width: auto;
     position: absolute;
     top: 0;
     right: 10px;
     font-size: 0;
-    /* border:  2px solid #00000061; */
     display: flex;
-    background-color: rgba(0, 0, 0, 0.502);
+    background-color: #000;
     color: #ffffff;
-    /* border-radius: 16px; */
-    transition: 0.5s;
+    border-radius: 16px;
+    transition: 0.3s;
     opacity: 0;
   }
   
   .notification-active{
-    width: auto;
+    position: fixed;
     top: 100px;
     font-size: initial;
     opacity: 1;
   }
   .notification-active .icon {
-    display: none;
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     color: white;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    font-size: 30px;
-    font-weight: 700;
+    font-weight: 900;
     margin: auto 20px;
   }
   
@@ -60,12 +57,10 @@
   .notification-active #notification-close{
     width: 45px;
     display: block;
-    font-size: 25px;
     margin: 5px;
     display: flex;
     align-items: center;
     justify-content: center;
-    /* background-color: #e74c3c; */
     border-radius: 50%;
     color: #fff;
     cursor: pointer;

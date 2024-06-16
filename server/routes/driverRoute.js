@@ -3,19 +3,32 @@ const  router = express.Router();
 const driverControllers = require('../controllers/driverControllers');
 const jwt = require('jsonwebtoken')
 
-const verifyUser = async (req, res, next)=>{
-    try{
-        const d = req.cookies.driver;
-        if(!d){
-            return res.json({staus: false, message: 'no token'})
-        }
-        await jwt.verify(d, process.env.SECRETKEY);
-            next()
-    }catch(err){
-        console.log(err);
-        return res.json(err)
+
+const verifyUser = (req, res, next) => {
+  try {
+    const token = req.cookies.driver;
+
+    if (!token) {
+      return res.json({ status: false, message: 'Not Authorized' });
     }
-}
+
+    const decoded = jwt.verify(token, process.env.SECRETKEY);
+    req.user = decoded; // Attach decoded user information to request object
+
+    next(); // Proceed to the next middleware or route handler
+  } catch (err) {
+    if (err.name === 'JsonWebTokenError') {
+      return res.status(401).json({ status: false, message: 'Invalid token' });
+    }
+    if (err.name === 'TokenExpiredError') {
+      return res.status(401).json({ status: false, message: 'Token expired' });
+    }
+    console.error('Error verifying token:', err);
+    return res.status(500).json({ status: false, message: 'Internal server error' });
+  }
+};
+
+
 
 router.post('/driversignup',driverControllers.driverSignupPost);
 
@@ -23,6 +36,5 @@ router.post('/driverlogin', driverControllers.driverLoginPost)
 
 router.post('/:busId', verifyUser, driverControllers.driverIdPost)
 
-router.get('/verify', verifyUser, driverControllers.verifyGet )
 
 module.exports = router
