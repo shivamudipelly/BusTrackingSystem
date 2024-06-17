@@ -14,7 +14,6 @@ const Card = ({ imgSrc, routeNo }) => {
   );
 }
 
-
 export default function Bus() {
 
 
