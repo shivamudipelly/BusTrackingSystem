@@ -141,7 +141,7 @@ const resetPasswordPost = async (req, res) => {
 
         const user = await User.updateOne({ _id: id }, { password: hashPassword });
         console.log(`Password reset for user ID: ${id}`);
-        
+
         if (user) {
             return res.json({ status: true, message: 'Password reset successful!' });
         } else {
@@ -185,7 +185,7 @@ const logoutGet = (req, res) => {
         }
 
         // Clear the user cookie
-        
+
         res.clearCookie('user', { path: '/' });
         res.cookie('user', '', {
             maxAge: 0, // This will cause the cookie to be deleted immediately
@@ -226,4 +226,4 @@ const mapGet = async (req, res) => {
     }
 };
 
-module.exports = { isLoginGet, mapGet, loginPost, signupPost, forgotPasswordPost, resetPasswordPost, logoutGet, createToken, handleErrors };
+module.exports = { isLoginGet, mapGet, loginPost, signupPost, forgotPasswordPost, resetPasswordPost, logoutGet, createToken };

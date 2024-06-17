@@ -1,9 +1,33 @@
 const { isEmail } = require('validator');
 const bcrypt = require('bcrypt');
 const drivers = require('../models/driver');
-const { createToken, handleErrors } = require('./authControllers');
+const { createToken } = require('./authControllers');
 const cookie = require('cookie-parser');
 const busLocation = require('../models/busLocation');
+
+const handleErrors = (err) => {
+    let errors = { name: "", email: "", password: "" };
+
+    // Handle validation errors
+    if (err.message.includes('drivers validation failed')) {
+        Object.values(err.errors).forEach(({ properties }) => {
+            errors[properties.path] = properties.message;
+        });
+    }
+
+    // Handle duplicate key errors
+    if (err.code === 11000) {
+        if (err.keyValue.email) {
+            errors.email = 'Email already registered';
+        }
+        if (err.keyValue.name) {
+            errors.name = 'Name is not available';
+        }
+    }
+
+    return errors;
+};
+
 
 const driverLoginPost = async (req, res) => {
     const { email, password } = req.body;
