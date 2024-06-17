@@ -6,8 +6,8 @@ const cookie = require('cookie-parser');
 const busLocation = require('../models/busLocation');
 
 const handleErrors = (err) => {
-    let errors = { name: "", email: "", password: "" };
-
+    let errors = { id: "", email: "", password: "" };
+    console.log(err.keyValue.busId);
     // Handle validation errors
     if (err.message.includes('drivers validation failed')) {
         Object.values(err.errors).forEach(({ properties }) => {
@@ -20,8 +20,8 @@ const handleErrors = (err) => {
         if (err.keyValue.email) {
             errors.email = 'Email already registered';
         }
-        if (err.keyValue.name) {
-            errors.name = 'Name is not available';
+        if (err.keyValue.busId) {
+            errors.id = 'ID already in use';
         }
     }
 

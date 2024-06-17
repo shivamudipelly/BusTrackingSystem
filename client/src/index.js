@@ -39,7 +39,7 @@ function App() {
                             <Route path="" element={<BusLocation />} />
                         </Route>
                         <Route path="/driver/login" element={<DriverLogin />} />
-                        <Route path="/driver/signup" element={<DriverSignup />} />
+                        <Route path="/dashboard/signup" element={<DriverSignup />} />
                         <Route path="/driver/bus/:busId" element={<TrackLocation />} />
                     </Route>
                 </Routes>
