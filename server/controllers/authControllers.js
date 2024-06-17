@@ -175,14 +175,31 @@ const isLoginGet = (req, res) => {
 
 const logoutGet = (req, res) => {
     try {
-        res.clearCookie('user');
-        console.log('User logged out');
+        // Logging the user cookie for debugging
+        const userCookie = req.cookies.user; // Access the user cookie correctly
+        console.log('User cookie before logout:', userCookie);
+
+        if (!userCookie) {
+            console.log('No user cookie found. User might already be logged out.');
+            return res.json({ status: false, message: 'No user logged in' });
+        }
+
+        // Clear the user cookie
+        res.clearCookie('user', { path: '/' });
+
+        // Confirm cookie clearance for debugging
+        const clearedCookie = req.cookies.user;
+        console.log('User cookie after logout:', clearedCookie);
+
+        // Send a success response
         return res.json({ status: true, message: 'Logout successful!' });
     } catch (err) {
+        // Log and send an error response
         console.error('Logout error:', err);
         return res.json({ status: false, message: 'Logout failed' });
     }
 };
+
 
 const mapGet = async (req, res) => {
     let { busId } = req.params;

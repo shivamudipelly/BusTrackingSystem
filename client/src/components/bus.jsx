@@ -3,19 +3,22 @@ import { Link } from 'react-router-dom';
 import '../css/bus.css';
 import imageUrl from '../images/bus.jpeg';
 const Card = ({ imgSrc, routeNo }) => {
-    return (
-      <div className="card">
-        <img src={imgSrc} alt="Route" style={{ width: '100%' }} />
-        <div className="contain">
-          <h4><b>Route {routeNo}</b></h4>
-          <Link className='link-button' to={`/user/map/${routeNo}`} >Track Location</Link>
-        </div>
+  return (
+    <div className="card">
+      <img src={imgSrc} alt="Route" style={{ width: '100%' }} />
+      <div className="contain">
+        <h4><b>Route {routeNo}</b></h4>
+        <Link className='link-button' to={`/user/map/${routeNo}`} >Track Location</Link>
       </div>
-    );
-  }
+    </div>
+  );
+}
 
- 
-const Bus = () => {
+
+export default function Bus() {
+
+
+
   const cardsData = [
     { imgSrc: imageUrl, routeNo: 1 },
     { imgSrc: imageUrl, routeNo: 2 },
@@ -31,7 +34,7 @@ const Bus = () => {
 
 
   return (
-    <div  className='bus-container'>
+    <div className='bus-container'>
       {cardsData.map((card, index) => (
         <Card
           key={index}
@@ -40,7 +43,7 @@ const Bus = () => {
         />
       ))}
     </div>
-  );
+  )
 }
 
-export default Bus;
+

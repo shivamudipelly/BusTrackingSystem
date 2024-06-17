@@ -15,7 +15,7 @@ export default function Navbar() {
     const handleLogout = async () => {
         try {
             axios.defaults.withCredentials = true;
-            const response = await axios.get(`${apiUrl}/auth/user/logout`);
+            const response = await axios.get(`${apiUrl}/auth/user/logout`, { withCredentials: true });
             console.log(response.data);
             if (response.data.status) {
                 logout();
@@ -31,6 +31,7 @@ export default function Navbar() {
             handleLinkClick();
         }
     };
+
 
     const handleLinkClick = () => {
         setIsMenuOpen(false);
