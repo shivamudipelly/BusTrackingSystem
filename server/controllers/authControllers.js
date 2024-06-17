@@ -185,7 +185,14 @@ const logoutGet = (req, res) => {
         }
 
         // Clear the user cookie
+        
         res.clearCookie('user', { path: '/' });
+        res.cookie('user', '', {
+            maxAge: 0, // This will cause the cookie to be deleted immediately
+            httpOnly: true,
+            secure: true,
+            sameSite: 'None'
+        });
 
         // Confirm cookie clearance for debugging
         const clearedCookie = req.cookies.user;
