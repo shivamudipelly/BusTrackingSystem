@@ -35,7 +35,7 @@ function App() {
                         <Route path="/user/forgotPassword" element={<ForgotPassword />} />
                         <Route path="/user/resetPassword/:token" element={<ResetPassword />} />
                         <Route path="/user/map" element={<RequireAuth><Bus /></RequireAuth>} />
-                        <Route path="/user/map/:busId" element={<RequireAuth><MapLayout  zoom={90} /> </RequireAuth>}>
+                        <Route path="/user/map/:busId" element={<RequireAuth><MapLayout  zoom={999} /> </RequireAuth>}>
                             <Route path="" element={<BusLocation />} />
                         </Route>
                         <Route path="/driver/login" element={<DriverLogin />} />
